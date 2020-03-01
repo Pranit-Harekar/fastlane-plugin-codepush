@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
   spec.email         = 'pranitharekar@hotmail.com'
 
   spec.summary       = 'Fastlane plugin for App Center CodePush actions 🚀'
-  # spec.homepage      = "https://github.com/<GITHUB_USERNAME>/fastlane-plugin-codepush"
+  spec.homepage      = "https://github.com/Pranit-Harekar/fastlane-plugin-codepush"
   spec.license       = "MIT"
 
   spec.files         = Dir["lib/**/*"] + %w(README.md LICENSE)
