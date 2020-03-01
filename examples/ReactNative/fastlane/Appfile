@@ -1,0 +1,4 @@
+app_identifier("org.reactjs.native.example.ReactNative") # The bundle identifier of your app
+
+# For more information about the Appfile, see:
+#     https://docs.fastlane.tools/advanced/#appfile

@@ -1,18 +1,12 @@
 require 'fastlane/action'
-require_relative '../helper/codepush_login_helper'
 
 module Fastlane
   module Actions
-    class CodepushAction < Action
+    class CodepushReleaseReactAction < Action
       def self.run(params)
-        if params[:login_token].instance_of?(String)
-          Helper::CodepushLoginHelper.login(params[:login_token])
-        else
-          UI.user_error!('Provide parameter :login_token String')
-        end
-
         Dir.chdir(params[:execution_dir_path].to_s) do
           command = "appcenter codepush release-react "
+
           ## params
           command += "-a #{params[:app_name]} "
           command += "-t #{params[:target_binary_version]} " if params[:target_binary_version]
@@ -43,7 +37,7 @@ module Fastlane
       end
 
       def self.description
-        'Fastlane plugin for CodePush release-react command'
+        'CodePush release-react action'
       end
 
       def self.authors
@@ -55,22 +49,14 @@ module Fastlane
       end
 
       def self.details
-        'Fastlane plugin for CodePush release-react command'
       end
 
       def self.available_options
         [
           FastlaneCore::ConfigItem.new(
-            key: :login_token,
-            env_name: 'APP_CENTER_LOGIN_TOKEN',
-            description: 'App center login token to access CodePush',
-            optional: false,
-            type: String
-          ),
-          FastlaneCore::ConfigItem.new(
             key: :app_name,
-            env_name: "APP_CENTER_CODEPUSH_APP_NAME",
-            description: 'Name of the App Center app that this update is being released for',
+            env_name: "APP_CENTER_APP_NAME",
+            description: "Name of the App Center app, optional if ENV['APP_CENTER_APP_NAME'] is set",
             optional: false,
             type: String
           ),
@@ -85,7 +71,8 @@ module Fastlane
             key: :target_binary_version,
             description: 'Store/binary version of the app you are releasing the update for',
             optional: true,
-            type: String
+            type: String,
+            default_value: "\"*\""
           ),
           FastlaneCore::ConfigItem.new(
             key: :deployment_name,

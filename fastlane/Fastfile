@@ -1,3 +1,0 @@
-lane :test do
-  codepush login_token: "876a0bfba23b5d44daxxxxxxxxxxxxxx", app_name: "MyAwesomeApp"
-end

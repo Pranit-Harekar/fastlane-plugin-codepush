@@ -19,6 +19,21 @@ module Fastlane
       def self.logout
         Action.sh("appcenter logout")
       end
+
+      def self.is_logged_in
+        logged_in = true
+        begin
+          Action.sh(
+            "appcenter profile list",
+            print_command: false
+          )
+          UI.message("User is already logged in")
+        rescue
+          logged_in = false
+          UI.message("User is not logged in")
+        end
+        logged_in
+      end
     end
   end
 end

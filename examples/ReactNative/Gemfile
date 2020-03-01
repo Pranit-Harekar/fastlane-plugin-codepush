@@ -1,0 +1,4 @@
+source "https://rubygems.org"
+
+gem "fastlane"
+gem "fastlane-plugin-codepush", git: "https://github.com/Pranit-Harekar/fastlane-plugin-codepush"
