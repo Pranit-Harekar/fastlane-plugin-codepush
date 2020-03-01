@@ -2,6 +2,16 @@
 
 [![fastlane Plugin Badge](https://rawcdn.githack.com/fastlane/fastlane/master/fastlane/assets/plugin-badge.svg)](https://rubygems.org/gems/fastlane-plugin-codepush)
 
+[📚Documentation](https://pranit-harekar.github.io/fastlane-plugin-codepush)
+
+## Prerequisites
+
+Install the [App Center CLI](https://docs.microsoft.com/en-us/appcenter/distribution/codepush/cli#installation)
+
+```
+npm install -g appcenter-cli
+```
+
 ## Getting Started
 
 This project is a [_fastlane_](https://github.com/fastlane/fastlane) plugin. To get started with `fastlane-plugin-codepush`, add it to your project by running:
@@ -24,7 +34,7 @@ This is a Fastlane plugin for App Center CodePush service.
 codepush_login
 ```
 
-| Key         | Description                                                                                         | Environment Variable   | Default |
+| Option      | Description                                                                                         | Environment Variable   | Default |
 | ----------- | --------------------------------------------------------------------------------------------------- | ---------------------- | ------- |
 | login_token | App center login token to access CodePush service, optional if ENV['APP_CENTER_LOGIN_TOKEN'] is set | APP_CENTER_LOGIN_TOKEN |         |
 | enforce     | Enforce logout before login                                                                         |                        | false   |
@@ -50,7 +60,7 @@ codepush_release_react(
 )
 ```
 
-| Action                          | Description                                                                        | Environment Variable | Default |
+| Option                          | Description                                                                        | Environment Variable | Default |
 | ------------------------------- | ---------------------------------------------------------------------------------- | -------------------- | ------- |
 | app_name                        | Name of the App Center app, optional if ENV['APP_CENTER_APP_NAME'] is set          | APP_CENTER_APP_NAME  |         |
 | execution_dir_path              | Release React CLI command execution dir path                                       |                      | ./      |
@@ -88,7 +98,7 @@ codepush_promote(
 )
 ```
 
-| Action                          | Description                                                               | Environment Variable | Default |
+| Option                          | Description                                                               | Environment Variable | Default |
 | ------------------------------- | ------------------------------------------------------------------------- | -------------------- | ------- |
 | app_name                        | Name of the App Center app, optional if ENV['APP_CENTER_APP_NAME'] is set | APP_CENTER_APP_NAME  |         |
 | execution_dir_path              | Promote CLI command execution dir path                                    |                      | ./      |
