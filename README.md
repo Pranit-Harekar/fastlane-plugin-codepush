@@ -191,6 +191,53 @@ codepush_list_deployment(
 | execution_dir_path | Release React CLI command execution dir path                              |                      | ./      |
 | dry_run            | Print the command that would be run, and don't run it                     |                      | false   |
 
+#### 9. `codepush_exists_deployment`
+
+This action lets check if given CodePush deployment exists. Returns boolean value.
+
+```ruby
+codepush_exists_deployment(
+  app_name: "pharekar/MyAwesomeApp",
+  deployment_name: "Alpha"
+)
+
+## returns true if 'Alpha' deployment exists otherwise false
+```
+
+| Option             | Description                                                               | Environment Variable | Default |
+| ------------------ | ------------------------------------------------------------------------- | -------------------- | ------- |
+| app_name           | Name of the App Center app, optional if ENV['APP_CENTER_APP_NAME'] is set | APP_CENTER_APP_NAME  |         |
+| execution_dir_path | Release React CLI command execution dir path                              |                      | ./      |
+| deployment_name    | Deployment name                                                           |                      |         |
+| dry_run            | Print the command that would be run, and don't run it                     |                      | false   |
+
+#### 10. `codepush_get_deployment_key`
+
+This action returns CodePush deployment key given deployment name. If deployment does not exists it returns `nil`
+
+```ruby
+codepush_get_deployment_key(
+  app_name: "pharekar/MyAwesomeApp",
+  deployment_name: "Alpha"
+)
+
+## 1243453jksau2113l2h1k323h1829ebj
+
+codepush_get_deployment_key(
+  app_name: "pharekar/MyAwesomeApp",
+  deployment_name: "foo"
+)
+
+## nil
+```
+
+| Option             | Description                                                               | Environment Variable | Default |
+| ------------------ | ------------------------------------------------------------------------- | -------------------- | ------- |
+| app_name           | Name of the App Center app, optional if ENV['APP_CENTER_APP_NAME'] is set | APP_CENTER_APP_NAME  |         |
+| execution_dir_path | Release React CLI command execution dir path                              |                      | ./      |
+| deployment_name    | Deployment name                                                           |                      |         |
+| dry_run            | Print the command that would be run, and don't run it                     |                      | false   |
+
 ## Example
 
 Check out the [example `Fastfile`](examples/ReactNative/fastlane/Fastfile) to see how to use this plugin.

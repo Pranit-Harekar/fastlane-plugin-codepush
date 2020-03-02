@@ -49,6 +49,18 @@ platform :ios do
     codepush_list_deployment(
       app_name: "pharekar/MyAwesomeApp"
     )
+
+    ## Check if deployment exists
+    codepush_exists_deployment(
+      app_name: "pharekar/MyAwesomeApp",
+      deployment_name: "Alpha"
+    )
+
+    ## Get deployment key associated with deployment
+    codepush_get_deployment_key(
+      app_name: "pharekar/MyAwesomeApp",
+      deployment_name: "Alpha"
+    )
   end
 
   after_all do
