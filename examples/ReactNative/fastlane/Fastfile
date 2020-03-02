@@ -7,17 +7,47 @@ platform :ios do
   end
 
   lane :deploy_to_codepush do
+    ## Release RN bundle
+    codepush_release_react # Make sure you've set APP_CENTER_APP_NAME environment variable
+
+    ## OR
     codepush_release_react(
-      app_name: "pharekar/MyAwesomeApp", 
-      disable_duplicate_release_error: true
+      app_name: "pharekar/MyAwesomeApp"
     )
   end
 
   lane :promote_to_production do
+    ## Promote deployment
     codepush_promote(
       app_name: "pharekar/MyAwesomeApp",
       source_deployment_name: "Staging",
-      destination_deployment_name: "Production",
+      destination_deployment_name: "Production"
+    )
+  end
+
+  lane :all_deployment_lanes do
+    ## Add new deployment
+    codepush_add_deployment(
+      app_name: "pharekar/MyAwesomeApp",
+      deployment_name: "Alpha"
+    )
+
+    ## Remove deployment
+    codepush_remove_deployment(
+      app_name: "pharekar/MyAwesomeApp",
+      deployment_name: "Alpha"
+    )
+
+    ## Rename deployment
+    codepush_rename_deployment(
+      app_name: "pharekar/MyAwesomeApp",
+      deployment_name: "Alpha",
+      new_deployment_name: "Internal-Alpha"
+    )
+
+    ## List all deployments
+    codepush_list_deployment(
+      app_name: "pharekar/MyAwesomeApp"
     )
   end
 

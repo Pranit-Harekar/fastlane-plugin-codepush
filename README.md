@@ -84,7 +84,7 @@ codepush_release_react(
 | bundle_name                     | File name that should be used for the generated JS bundle                          |                      |         |
 | dry_run                         | Print the command that would be run, and don't run it                              |                      | false   |
 
-#### 3. `codepush_promote`
+#### 4. `codepush_promote`
 
 CodePush [promote deployment](https://docs.microsoft.com/en-us/appcenter/distribution/codepush/cli#promoting-updates) action
 
@@ -110,6 +110,86 @@ codepush_promote(
 | disable_duplicate_release_error | Specify whether duplicate release error should be disabled or not         |                      | false   |
 | disable_telemetry               | Specify whether telemetry should be disabled or not                       |                      | false   |
 | dry_run                         | Print the command that would be run, and don't run it                     |                      | false   |
+
+#### 5. `codepush_add_deployment`
+
+CodePush [add deployment](https://docs.microsoft.com/en-us/appcenter/distribution/codepush/cli#deployment-management) action
+
+This action lets you add new CodePush deployment.
+
+```ruby
+codepush_add_deployment(
+  app_name: "pharekar/MyAwesomeApp",
+  deployment_name: "Alpha"
+)
+```
+
+| Option             | Description                                                               | Environment Variable | Default |
+| ------------------ | ------------------------------------------------------------------------- | -------------------- | ------- |
+| app_name           | Name of the App Center app, optional if ENV['APP_CENTER_APP_NAME'] is set | APP_CENTER_APP_NAME  |         |
+| execution_dir_path | Release React CLI command execution dir path                              |                      | ./      |
+| deployment_name    | Deployment name                                                           |                      |         |
+| dry_run            | Print the command that would be run, and don't run it                     |                      | false   |
+
+#### 6. `codepush_remove_deployment`
+
+CodePush [remove deployment](https://docs.microsoft.com/en-us/appcenter/distribution/codepush/cli#deployment-management) action
+
+This action lets you remove CodePush deployment.
+
+```ruby
+codepush_remove_deployment(
+  app_name: "pharekar/MyAwesomeApp",
+  deployment_name: "Alpha"
+)
+```
+
+| Option             | Description                                                               | Environment Variable | Default |
+| ------------------ | ------------------------------------------------------------------------- | -------------------- | ------- |
+| app_name           | Name of the App Center app, optional if ENV['APP_CENTER_APP_NAME'] is set | APP_CENTER_APP_NAME  |         |
+| execution_dir_path | Release React CLI command execution dir path                              |                      | ./      |
+| deployment_name    | Deployment name                                                           |                      |         |
+| dry_run            | Print the command that would be run, and don't run it                     |                      | false   |
+
+#### 7. `codepush_rename_deployment`
+
+CodePush [rename deployment](https://docs.microsoft.com/en-us/appcenter/distribution/codepush/cli#deployment-management) action
+
+This action lets you rename CodePush deployment.
+
+```ruby
+codepush_rename_deployment(
+  app_name: "pharekar/MyAwesomeApp",
+  deployment_name: "Alpha",
+  new_deployment_name: "Internal-Alpha"
+)
+```
+
+| Option              | Description                                                               | Environment Variable | Default |
+| ------------------- | ------------------------------------------------------------------------- | -------------------- | ------- |
+| app_name            | Name of the App Center app, optional if ENV['APP_CENTER_APP_NAME'] is set | APP_CENTER_APP_NAME  |         |
+| execution_dir_path  | Release React CLI command execution dir path                              |                      | ./      |
+| deployment_name     | Deployment name                                                           |                      |         |
+| new_deployment_name | New deployment name                                                       |                      |         |
+| dry_run             | Print the command that would be run, and don't run it                     |                      | false   |
+
+#### 8. `codepush_list_deployment`
+
+CodePush [list deployment](https://docs.microsoft.com/en-us/appcenter/distribution/codepush/cli#deployment-management) action
+
+This action lets you list all CodePush deployment.
+
+```ruby
+codepush_list_deployment(
+  app_name: "pharekar/MyAwesomeApp"
+)
+```
+
+| Option             | Description                                                               | Environment Variable | Default |
+| ------------------ | ------------------------------------------------------------------------- | -------------------- | ------- |
+| app_name           | Name of the App Center app, optional if ENV['APP_CENTER_APP_NAME'] is set | APP_CENTER_APP_NAME  |         |
+| execution_dir_path | Release React CLI command execution dir path                              |                      | ./      |
+| dry_run            | Print the command that would be run, and don't run it                     |                      | false   |
 
 ## Example
 
@@ -144,3 +224,8 @@ For more information about how the `fastlane` plugin system works, check out the
 ## About _fastlane_
 
 _fastlane_ is the easiest way to automate beta deployments and releases for your iOS and Android apps. To learn more, check out [fastlane.tools](https://fastlane.tools).
+
+## Why this plugin?
+
+- [fastlane-plugin-appcenter](https://github.com/microsoft/fastlane-plugin-appcenter) does not support CodePush
+- [Fastfastlane-plugin-code_pushlane](https://github.com/manuelkch/fastlane-plugin-code_push) is outdated & does not support App Center CLI
