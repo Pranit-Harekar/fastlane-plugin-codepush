@@ -11,12 +11,13 @@ module Fastlane
             ## params
             command += "-a #{params[:app_name]} "
             command += "--displayKeys "
-            command += "| grep '#{params[:deployment_name]}'"
 
             if params[:dry_run]
               UI.message('Dry run!'.red + ' Would have run: ' + command + "\n")
             else
-              sh(command.to_s)[-50...-13]
+              result = sh(command.to_s)
+              m = result.match(/#{params[:deployment_name]}[^│]+│[^│]+(?<key>[\w_-]{37})/)
+              return m[:key]
             end
           else
             UI.important("🙅‍♀️ Deployment '#{params[:deployment_name]}' does not exists!")

@@ -26,6 +26,11 @@ fastlane ios deploy_to_codepush
 fastlane ios promote_to_production
 ```
 
+### ios all_deployment_lanes
+```
+fastlane ios all_deployment_lanes
+```
+
 
 ----
 

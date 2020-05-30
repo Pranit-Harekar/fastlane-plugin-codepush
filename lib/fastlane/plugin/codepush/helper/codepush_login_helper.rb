@@ -10,6 +10,7 @@ module Fastlane
           "appcenter login --token #{login_token}",
           print_command: false
         )
+        UI.message("🎉Logged in successfully")
       rescue StandardError
         UI.user_error!(
           "Something went wrong during App Center login!! Please ensure login token #{login_token} is correct"

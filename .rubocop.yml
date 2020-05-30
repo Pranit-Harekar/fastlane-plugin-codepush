@@ -131,6 +131,8 @@ AllCops:
     - "**/lib/assets/DefaultFastfileTemplate"
     - "**/lib/assets/MatchfileTemplate"
     - "**/spec/fixtures/broken_files/broken_file.rb"
+    - "examples/ReactNative/**/*"
+    - "lib/fastlane/plugin/codepush/actions/codepush_release_react_action.rb"
 Style/FileName:
   Exclude:
     - "**/Dangerfile"
