@@ -19,6 +19,7 @@ module Fastlane
 
       def self.logout
         Action.sh("appcenter logout")
+        UI.message("✅Logged out successfully")
       end
 
       def self.is_logged_in

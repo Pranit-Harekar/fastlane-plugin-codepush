@@ -4,9 +4,8 @@ require_relative '../helper/codepush_login_helper'
 module Fastlane
   module Actions
     class CodepushLogoutAction < Action
-      def self.run(params)
+      def self.run
         Helper::CodepushLoginHelper.logout
-      rescue
       end
 
       def self.description
