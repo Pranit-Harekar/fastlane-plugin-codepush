@@ -3,7 +3,8 @@ default_platform(:ios)
 platform :ios do
   before_all do
     codepush_login # Make sure you've set APP_CENTER_LOGIN_TOKEN environment variable
-    # OR codepush_login(login_token: "foo")
+    # OR
+    codepush_login(login_token: "foo")
   end
 
   lane :deploy_to_codepush do
@@ -25,7 +26,7 @@ platform :ios do
     )
   end
 
-  lane :all_deployment_lanes do
+  lane :misc_deployment_lanes do
     ## Add new deployment
     codepush_add_deployment(
       app_name: "pharekar/MyAwesomeApp",
