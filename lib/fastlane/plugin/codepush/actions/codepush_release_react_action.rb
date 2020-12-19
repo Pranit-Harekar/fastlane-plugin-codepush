@@ -72,7 +72,6 @@ module Fastlane
             description: 'Store/binary version of the app you are releasing the update for',
             optional: true,
             type: String,
-            default_value: "\"*\""
           ),
           FastlaneCore::ConfigItem.new(
             key: :deployment_name,
